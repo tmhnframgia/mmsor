@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], per_page: 10)
   end
   
   def new
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in @user
       flash[:success] = "Successfully registered ! Be ready to choose your teams and...wait for more features !"
       redirect_to @user
     else
