@@ -1,0 +1,12 @@
+<% provide(:title, 'All users') %>
+<h1>All accidentally registered Users</h1>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= image_tag(user.get_avatar, alt: user.fullname, class: 'user-avatar') %>
+      <div class="user-info"><%= link_to user.fullname, user %> (<%= link_to user.username, user %>)
+      <br/><i>age <%= link_to user.age, user %></i></div>
+    </li>
+  <% end %>
+</ul>
