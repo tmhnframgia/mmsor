@@ -166,19 +166,6 @@ aside {
   }
 }
 
-.user-avatar {
-  overflow: auto;
-  margin-top: 10px;
-  width: 60px;
-  height: 60px;
-  float: left;
-}
-
-.user-info {
-  float: left;
-  margin: 20px 0 0 20px;
-}
-
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -205,9 +192,9 @@ input {
   @extend .error;
 }
 
-/* Users index */
+/* List - index */
 
-.users {
+.list-wrap {
   list-style: none;
   margin: 0;
   li {
@@ -221,6 +208,34 @@ input {
   }
 }
 
+.list-item-avatar {
+  overflow: auto;
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+.list-item-info {
+  float: left;
+  margin: 20px 0 0 20px;
+}
+
 .pagination {
   clear: both;
+}
+
+/* User */
+
+.user-avatar {
+  overflow: auto;
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+.user-info {
+  float: left;
+  margin: 20px 0 0 20px;
 }

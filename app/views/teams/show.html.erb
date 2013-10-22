@@ -1,0 +1,11 @@
+  <% provide(:title, "Team: " + @team.name) %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+      <%= image_tag(@team.creator.get_avatar, alt: @team.name, class: 'user-avatar') %>
+        <div class="user-info"><h1><%= @team.name %></h1>
+          <i>created by: <%= @team.creator.fullname %></i>
+        </div>
+      </section>
+    </aside>
+  </div>

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 	before_save { username.downcase! }
 	before_create :create_remember_token
 
+	has_many :teams, foreign_key: "creator_id", dependent: :destroy
+
 	def get_avatar
 		read_attribute(:avatar_url).presence || "http://zizaza.com/cache/icon_256/iconset/581392/581398/PNG/256/rhombus/talk_flat_design_icon_png_flat_icon_talk_icon_talk_png.png"
 	end

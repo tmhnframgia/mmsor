@@ -2,12 +2,12 @@
 <h1>All accidentally registered Users</h1>
 
 <%= will_paginate %>
-<ul class="users">
+<ul class="list-wrap">
   <% @users.each do |user| %>
     <li>
-      <%= image_tag(user.get_avatar, alt: user.fullname, class: 'user-avatar') %>
-      <div class="user-info"><%= link_to user.fullname, user %> (<%= link_to user.username, user %>)
-      <br/><i>age <%= link_to user.age, user %></i></div>
+      <%= image_tag(user.get_avatar, alt: user.fullname, class: 'list-item-avatar') %>
+      <div class="list-item-info"><%= link_to user.fullname, user %> (<%= link_to user.username, user %>)
+      <br/><i>age <%= user.age %></i></div>
     </li>
   <% end %>
 </ul>
