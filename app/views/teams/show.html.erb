@@ -2,10 +2,20 @@
   <div class="row">
     <aside class="span4">
       <section>
-      <%= image_tag(@team.creator.get_avatar, alt: @team.name, class: 'user-avatar') %>
-        <div class="user-info"><h1><%= @team.name %></h1>
+        <%= image_tag(@team.creator.get_avatar, alt: @team.name, class: 'user-avatar') %>
+        <div class="user-info"><h1><b class="object-type">Team</b> <%= @team.name %></h1>
           <i>created by: <%= @team.creator.fullname %></i>
         </div>
       </section>
     </aside>
+    <div class="span8">
+      <%= render 'join_leave_form' if signed_in? %>
+      <% if @team.teammembers.any? %>
+      <h3>Members (<%= @team.teammembers.count %>)</h3>
+      <ol class="list-wrap">
+        <%= render @teammembers %>
+      </ol>
+      <%= will_paginate @teammembers %>
+      <% end %>
+    </div>
   </div>

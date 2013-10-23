@@ -8,4 +8,23 @@
         </div>
       </section>
     </aside>
+    <div class="span8">
+     <% if @memberships.any?%>
+     <h3>Has joined in <%= pluralize(@memberships.count, "team") %> </h3>
+     <% will_paginate @memberships %>
+
+     <ol class="list-wrap in-profile">
+     <% @memberships.each do |membership| %>
+         <li>
+          <%= image_tag(membership.team.creator.get_avatar, alt: membership.team.creator.fullname, class: 'list-item-avatar') %>
+          <div class="list-item-info"><b><%= link_to membership.team.name, membership.team %></b>
+            (<%= pluralize(membership.team.teammembers.count, "member") %>)
+            <br/><i>created by: <%= link_to membership.team.creator.fullname, membership.team.creator %></i></div>
+          </li>
+      <% end %>
+    </ol>
+
+    <% will_paginate @memberships %>
+    <% end %>
   </div>
+</div>

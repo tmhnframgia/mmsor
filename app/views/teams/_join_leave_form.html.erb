@@ -1,0 +1,9 @@
+<% unless @team.createdby?(current_user) %>
+  <div id="join_leave_form">
+  <% if @team.joined?(current_user) %>
+    <%= render 'leave' %>
+  <% else %>
+    <%= render 'join' %>
+  <% end %>
+  </div>
+<% end %>

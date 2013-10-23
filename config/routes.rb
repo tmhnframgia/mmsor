@@ -3,6 +3,7 @@ Mmsor::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :teams, only: [:create, :destroy, :show]
+  resources :teammembers, only: [:create, :destroy]
   
   root "static_pages#home"
 

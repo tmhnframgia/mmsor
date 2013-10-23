@@ -208,6 +208,14 @@ input {
   }
 }
 
+.list-wrap.in-profile {
+  li {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+
 .list-item-avatar {
   overflow: auto;
   margin-top: 10px;
@@ -238,4 +246,11 @@ input {
 .user-info {
   float: left;
   margin: 20px 0 0 20px;
+  .object-type {
+    color: $grayLight;
+  }
+}
+
+a.dangerous-link {
+  color: #e74c3c;
 }

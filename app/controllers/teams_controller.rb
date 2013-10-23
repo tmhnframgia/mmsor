@@ -13,6 +13,7 @@ class TeamsController < ApplicationController
     @team = current_user.teams.build(team_params)
     @team.creator_id = current_user.id
     if @team.save
+      @team.join!(current_user)
       flash[:success] = "Team build successfully !"
       redirect_to @team
     else
@@ -22,6 +23,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @teammembers = @team.teammembers.paginate(page: params[:page], per_page: 10)
   end
 
   def destroy

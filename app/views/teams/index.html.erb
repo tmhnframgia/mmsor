@@ -6,7 +6,7 @@
   <% @teams.each do |team| %>
     <li>
       <%= image_tag(team.creator.get_avatar, alt: team.creator.fullname, class: 'list-item-avatar') %>
-      <div class="list-item-info"><b><%= link_to team.name, team %></b>
+      <div class="list-item-info"><b><%= link_to team.name, team %></b> - <i> <%= pluralize(team.teammembers.count, "member") %> </i>
       <br/><i>created by: <%= link_to team.creator.fullname, team.creator %></i></div>
     </li>
   <% end %>

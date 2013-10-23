@@ -1,0 +1,13 @@
+<% @selected_member = teammember.member %>
+<li>
+  <%= image_tag(@selected_member.get_avatar, alt: @selected_member.fullname, class: 'list-item-avatar') %>
+      <div class="list-item-info"><%= link_to @selected_member.fullname, @selected_member %> 
+      (<%= link_to @selected_member.username, @selected_member %>) - <i>age <%= teammember.member.age %></i> 
+      	<br/>
+      	<% if @team.createdby?(current_user) && !current_user?(@selected_member) %>
+      		<%= link_to "Kick", teammember, method: :delete, 
+      												data: { confirm: "You surely want to kick this cute member? " },
+      												class: "dangerous-link" %>
+      	<% end %>
+      </div>      
+</li>
