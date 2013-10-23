@@ -12,7 +12,7 @@ class TeammembersController < ApplicationController
 		@team = @teammember.team
 		# @team.leave!(current_user)
 		@teammember.destroy
-		if current_user?( @teammember.member)
+		if current_user?(@teammember.member)
 			flash[:success] = "You have left team " + @team.name
 		else
 			flash[:success] = 'Member "' + @teammember.member.fullname + '" has been kicked out of team ' + @team.name

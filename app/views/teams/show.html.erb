@@ -12,7 +12,8 @@
       <%= render 'join_leave_form' if signed_in? %>
       <% if @team.teammembers.any? %>
       <h3>Members (<%= @team.teammembers.count %>)</h3>
-      <ol class="list-wrap">
+       <%= will_paginate @teammembers %>
+      <ol class="list-wrap in-profile">
         <%= render @teammembers %>
       </ol>
       <%= will_paginate @teammembers %>

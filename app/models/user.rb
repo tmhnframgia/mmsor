@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 	has_many :teams, foreign_key: "creator_id", dependent: :destroy
 	has_many :memberships, class_name: "Teammember", foreign_key: "member_id", dependent: :destroy
 
+	default_scope -> { order('fullname') }
+
 	def get_avatar
 		read_attribute(:avatar_url).presence || "http://zizaza.com/cache/icon_256/iconset/581392/581398/PNG/256/rhombus/talk_flat_design_icon_png_flat_icon_talk_icon_talk_png.png"
 	end

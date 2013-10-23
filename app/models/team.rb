@@ -5,6 +5,7 @@ class Team < ActiveRecord::Base
 	validates :creator_id, presence: true
 
 	has_many :teammembers, foreign_key: "team_id", dependent: :destroy
+	default_scope -> { order('name') }
 
 	def createdby?(other_user)
 		creator == other_user
